@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fieldset and Legend Demonstration</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f6fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+fieldset {
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+legend {
+    font-weight: bold;
+    color: #4CAF50;
+    padding: 0 10px;
+}
+
+label {
+    display: block;
+    margin: 8px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f5e9;
+    border-left: 5px solid #4CAF50;
+    border-radius: 5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>User Information Form</h2>
+
+<form>
+
+<!-- Gender Selection -->
+
+<fieldset>
+<legend>Gender</legend>
+
+<label>
+<input type="radio" name="gender" value="Male"> Male
+</label>
+
+<label>
+<input type="radio" name="gender" value="Female"> Female
+</label>
+
+<label>
+<input type="radio" name="gender" value="Other"> Other
+</label>
+
+</fieldset>
+
+<!-- Hobbies Selection -->
+
+<fieldset>
+<legend>Hobbies</legend>
+
+<label>
+<input type="checkbox" name="hobby" value="Reading"> Reading
+</label>
+
+<label>
+<input type="checkbox" name="hobby" value="Traveling"> Traveling
+</label>
+
+<label>
+<input type="checkbox" name="hobby" value="Music"> Music
+</label>
+
+<label>
+<input type="checkbox" name="hobby" value="Sports"> Sports
+</label>
+
+</fieldset>
+
+<button type="button" onclick="showSelection()">
+Submit
+</button>
+
+</form>
+
+<div id="output"></div>
+
+</div>
+
+<script>
+
+function showSelection() {
+
+    let gender = "";
+    let hobbies = [];
+
+    // Get selected gender
+    let genders = document.getElementsByName("gender");
+
+    for (let i = 0; i < genders.length; i++) {
+
+        if (genders[i].checked) {
+            gender = genders[i].value;
+            break;
+        }
+    }
+
+    // Get selected hobbies
+    let hobbyList = document.getElementsByName("hobby");
+
+    for (let i = 0; i < hobbyList.length; i++) {
+
+        if (hobbyList[i].checked) {
+            hobbies.push(hobbyList[i].value);
+        }
+    }
+
+    // Display output
+    document.getElementById("output").innerHTML =
+        "<strong>Selected Gender:</strong> " +
+        (gender || "Not selected") +
+        "<br><strong>Selected Hobbies:</strong> " +
+        (hobbies.length > 0 ? hobbies.join(", ") : "None selected");
+}
+
+</script>
+
+</body>
+
+</html>

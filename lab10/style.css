@@ -1,0 +1,10 @@
+body {
+font-family: Arial;
+text-align: center;
+}
+#out {
+margin-top: 15px;
+padding: 10px;
+background: #eef;
+border-radius: 5px;
+}

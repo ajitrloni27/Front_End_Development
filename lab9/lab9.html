@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<title>Program 9</title>
+<style type="text/css">
+.layer1Style
+{
+border: solid thick black;
+padding: 1em;
+width:300px;
+background-color: yellow;
+position:absolute;
+top: 100px;
+left:200px;
+z-index:0;
+}
+.layer2Style
+{
+border: solid thick red;
+padding: 1em;
+width:300px;
+background-color: BLUE;
+position:absolute;
+top:120px;
+left:220px;
+z-index:0;
+}
+.layer3Style
+{
+border: solid thick green;
+padding: 1em;
+width:300px;
+background-color:purple;
+position:absolute;
+top: 140px;
+left:240px;
+z-index:0;
+}
+</style>
+
+<script type="text/javascript">
+var topLayer="layer3";
+function mover (toTop)
+{
+var oldTop=document.getElementById(topLayer).style;
+var newTop=document.getElementById(toTop).style;
+oldTop.zIndex="0";
+newTop.zIndex="10";
+topLayer=document.getElementById(toTop).id;
+}
+</script>
+</head>
+<body>
+<h2>Stacking of Paragraphs</h2>
+<div style="z-index: 10;" class="layer1Style" id="layer1"
+onmouseover="mover('layer1')">
+This is a story about four people: Everybody, Somebody, Anybody, and Nobody. There was an important job to be done and Everybody was asked to do it. Everybody was sure Somebody would do it.
+Anybody could have done it, but Nobody dit it.somebody got angry about that because it was everybody's job. Everybody thought Anybody could do it, but Nobody realized that Everybody wouldn't do it. It ended up that Everybody blamed Somebody when actually Nobody asked Anybody
+</div>
+<div style="z-index: 2;" class="layer2Style" id="layer2"
+onmouseover="mover('layer2')">
+Once upon a time, there lived a big lion in a jungle. Every day he hunted and killed many animals to satisfy his hunger. The animals were worried that one day none of them would be left alive. They all decided to go to the lion and find a solution to this problem.When the lion saw all the animals approaching, he was very happy as he thought that he would not have to take the trouble to hunt. He could just kill all the animals together once and for all.
+</div>
+<div style="z-index: 0;" class="layer3Style" id="layer3"
+onmouseover="mover('layer3')">
+One day a wolf found a sheepskin. He covered himself with the sheepskin and got into a flock of sheep grazing in a field. He thought, "The shepherd will shut the sheep in the pen after sunset. At night I will run away with a fat sheep and eat it.
+All went well till the shepherd shut the sheep in the pen and left. The wolf waited patiently for the night to advance and grow darker. But then an unexpected thing happened. One of the servants of the shepherd entered the pen. His master had sent him to bring a fat sheep for supper. As luck would have it, the servant picked up the wolf dressed in the sheepskin. That night the shepherd and his guests had the wolf for supper.
+Moral: An evil design has an evil end.
+</div>
+</body>
+</html>
